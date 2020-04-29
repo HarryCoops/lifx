@@ -6,5 +6,5 @@
 - or [Typer] (https://typer.tiangolo.com/)
 
 To do:
-- [] Decide on libraries / frameworks 
-- [] Sketch out architecture / design
+- [ ] Decide on libraries / frameworks 
+- [ ] Sketch out architecture / design
