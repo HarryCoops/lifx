@@ -2,8 +2,8 @@
 
 ## Plan
 - Will be written in Python most likely
-- Will probably use [click] (https://click.palletsprojects.com/en/7.x/)
-- or [Typer] (https://typer.tiangolo.com/)
+- Will probably use [click](https://click.palletsprojects.com/en/7.x/)
+- or [Typer](https://typer.tiangolo.com/)
 
 To do:
 - [ ] Decide on libraries / frameworks 
