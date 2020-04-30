@@ -38,9 +38,9 @@ class Capabilities(BaseModel):
     has_color: bool
     has_variable_color_temp: bool
     has_ir: bool
-    has_chain: bool
-    has_matrix: bool
-    has_multizone: bool
+    has_chain: bool = False
+    has_matrix: bool = False
+    has_multizone: bool = False
     min_kelvin: int
     max_kelvin: int
 
@@ -54,6 +54,7 @@ class Product(BaseModel):
 
 class Light(BaseModel):
     id: str
+    uuid: UUID
     label: str
     connected: bool
     power: str

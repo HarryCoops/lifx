@@ -1,10 +1,11 @@
-# Lifx Command Line Interface
+# Lifx Python Library
 
 ## Plan
-- Will be written in Python most likely
-- Will probably use [click](https://click.palletsprojects.com/en/7.x/)  or [Typer](https://typer.tiangolo.com/)
+- Going to use `requests` library
 
 
 To do:
-- [ ] Decide on libraries / frameworks 
-- [ ] Sketch out architecture / design
+- [x] Decide on libraries / frameworks 
+- [x] Sketch out architecture / design
+- [ ] Figure out how to do auth (how to configure and store etc)
+- [ ] Set up linting, typechecking, formatting, dev scripts
