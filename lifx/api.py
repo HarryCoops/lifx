@@ -3,12 +3,12 @@ from __future__ import annotations
 from typing import List, Optional
 from datetime import datetime
 from uuid import UUID
-from model import Light
+from lifx.model import Light
 
 import requests
 from pydantic import BaseModel, Json
 
-from exception import AuthorizationException
+from lifx.exception import AuthorizationException
 
 
 class Api:
@@ -24,6 +24,7 @@ class Api:
         response = requests.get(f"https://api.lifx.com/v1/lights/all", headers=self.headers)
         response.raise_for_status()
         light_jsons = response.json()
+        print(light_jsons)
         return [Light(**light_json) for light_json in light_jsons]
 
     def list_group_by_label(self, label: str) -> List[Light]:
@@ -46,14 +47,3 @@ class Api:
             return Light(**light_json[0])
         else:
             return None
-
-
-if __name__ == "__main__":
-    token = "c82ebac79a2a02ff2693c31f2f3f2634d14e43426218aa1a56771331e23241c8"
-    #light_id = "d073d52bcee3"
-    api = Api(token)
-    print(api.list_group_by_label("Bedroom"))
-    print(api.list_location_by_label("Home"))
-    print(api.get_light_by_label("Tess Ceiling"))
-    #response = requests.get(f"https://api.lifx.com/v1/lights/id:{light_id}/", headers={"Authorization": creds})
-    #tess_room = Light(**response.json()[0])

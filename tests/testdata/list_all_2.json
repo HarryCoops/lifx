@@ -1,0 +1,89 @@
+[
+    {
+        "id": "test_id_1", 
+        "uuid": "7ff6a2a8-84ff-4897-964a-6c1c941a1063", 
+        "label": "Test", 
+        "connected": true, 
+        "power": "on", 
+        "color": 
+        {
+            "hue": 300, 
+            "saturation": 1, 
+            "kelvin": 3500
+        }, 
+        "brightness": 0.9, 
+        "effect": "OFF", 
+        "group": 
+        {
+            "id": "3732ed2776c09c2831cc5501b69a0218", 
+            "name": "Test Room"
+        }, 
+        "location": 
+        {
+            "id": "7fd25780251cc4edf526707c259b5493",
+            "name": "Test Location"
+        },
+        "product": 
+        {
+            "name": "LIFX A19",
+            "identifier": "lifx_a19",
+            "company": "LIFX", 
+            "capabilities": 
+                {
+                    "has_color": true,
+                    "has_variable_color_temp": true,
+                    "has_ir": false, 
+                    "has_chain": false,
+                    "has_matrix": false,
+                    "has_multizone": false, 
+                    "min_kelvin": 2500, 
+                    "max_kelvin": 9000
+                }
+        }, 
+        "last_seen": "2020-05-03T18:05:34Z", 
+        "seconds_since_seen": 0
+    }, {
+        "id": "test_id_2", 
+        "uuid": "7ff6a2a8-84ff-4897-964a-6c1c941a1063", 
+        "label": "Test", 
+        "connected": true, 
+        "power": "on", 
+        "color": 
+        {
+            "hue": 300, 
+            "saturation": 1, 
+            "kelvin": 3500
+        }, 
+        "brightness": 0.9, 
+        "effect": "OFF", 
+        "group": 
+        {
+            "id": "3732ed2776c09c2831cc5501b69a0218", 
+            "name": "Test Room"
+        }, 
+        "location": 
+        {
+            "id": "7fd25780251cc4edf526707c259b5493",
+            "name": "Test Location"
+        },
+        "product": 
+        {
+            "name": "LIFX A19",
+            "identifier": "lifx_a19",
+            "company": "LIFX", 
+            "capabilities": 
+                {
+                    "has_color": true,
+                    "has_variable_color_temp": true,
+                    "has_ir": false, 
+                    "has_chain": false,
+                    "has_matrix": false,
+                    "has_multizone": false, 
+                    "min_kelvin": 2500, 
+                    "max_kelvin": 9000
+                }
+        }, 
+        "last_seen": "2020-05-03T18:05:34Z", 
+        "seconds_since_seen": 0
+    }
+]
