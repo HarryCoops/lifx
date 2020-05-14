@@ -16,7 +16,7 @@ class Api:
     def __init__(self, token: str) -> None:
         self.token = token
         self.headers = {"Authorization": f"Bearer {token}"}
-        response = requests.get("https://api.lifx.com/v1/lights/all", headers=self.headers)
+        response = requests.get("https://api.lifx.com/v1/lights", headers=self.headers)
         if response.status_code == 401:
             raise AuthorizationException(f"Authorization failed for token {token}")
 
@@ -24,7 +24,6 @@ class Api:
         response = requests.get(f"https://api.lifx.com/v1/lights/all", headers=self.headers)
         response.raise_for_status()
         light_jsons = response.json()
-        print(light_jsons)
         return [Light(**light_json) for light_json in light_jsons]
 
     def list_group_by_label(self, label: str) -> List[Light]:

@@ -6,19 +6,28 @@ import json
 
 test_data_path = pathlib.Path(__file__).parent.absolute() / "testdata"
 
+@pytest.fixture
 @responses.activate
-def test_get_all__empty():
+def fx_test_api() -> api.Api:
+    responses.add(
+        responses.GET, 
+        "https://api.lifx.com/v1/lights",
+        status=200
+    )
+    return api.Api("test-token")
+
+@responses.activate
+def test_get_all__empty(fx_test_api: api.Api):
     responses.add(
         responses.GET, 
         "https://api.lifx.com/v1/lights/all",
         json={}
     )
-    test_api = api.Api("test-token")
-    lights = test_api.list_all()
+    lights = fx_test_api.list_all()
     assert len(lights) == 0
 
 @responses.activate
-def test_get_all__length_one():
+def test_get_all__length_one(fx_test_api: api.Api):
     req_json = {}
     with open(test_data_path / "list_all_1.json") as f:
         req_json = json.loads(f.read())
@@ -27,14 +36,13 @@ def test_get_all__length_one():
         "https://api.lifx.com/v1/lights/all",
         json=req_json
     )
-    test_api = api.Api("test-token")
-    lights = test_api.list_all()
+    lights = fx_test_api.list_all()
     assert len(lights) == 1
     assert isinstance(lights[0], model.Light)
     assert lights[0].id == "test_id"
 
 @responses.activate
-def test_get_all__length_two():
+def test_get_all__length_two(fx_test_api: api.Api):
     req_json = {}
     with open(test_data_path / "list_all_2.json") as f:
         req_json = json.loads(f.read())
@@ -43,10 +51,54 @@ def test_get_all__length_two():
         "https://api.lifx.com/v1/lights/all",
         json=req_json
     )
-    test_api = api.Api("test-token")
-    lights = test_api.list_all()
+    lights = fx_test_api.list_all()
     assert len(lights) == 2
     assert isinstance(lights[0], model.Light)
     assert isinstance(lights[1], model.Light)
     assert lights[0].id == "test_id_1"
     assert lights[1].id == "test_id_2"
+
+
+@responses.activate
+def test_get_group(fx_test_api: api.Api):
+    req_json = {}
+    with open(test_data_path / "list_all_1.json") as f:
+        req_json = json.loads(f.read())
+    responses.add(
+        responses.GET, 
+        "https://api.lifx.com/v1/lights/group:test_label",
+        json=req_json
+    )
+    lights = fx_test_api.list_group_by_label("test_label")
+    assert len(lights) == 1
+    assert isinstance(lights[0], model.Light)
+    assert lights[0].id == "test_id"
+
+@responses.activate
+def test_get_location(fx_test_api: api.Api):
+    req_json = {}
+    with open(test_data_path / "list_all_1.json") as f:
+        req_json = json.loads(f.read())
+    responses.add(
+        responses.GET, 
+        "https://api.lifx.com/v1/lights/location:test-label",
+        json=req_json
+    )
+    lights = fx_test_api.list_location_by_label("test-label")
+    assert len(lights) == 1
+    assert isinstance(lights[0], model.Light)
+    assert lights[0].id == "test_id"
+
+@responses.activate
+def test_get_by_label(fx_test_api: api.Api):
+    req_json = {}
+    with open(test_data_path / "list_all_1.json") as f:
+        req_json = json.loads(f.read())
+    responses.add(
+        responses.GET, 
+        "https://api.lifx.com/v1/lights/label:test-label",
+        json=req_json
+    )    
+    light = fx_test_api.get_light_by_label("test-label")
+    assert isinstance(light, model.Light)
+    assert light.id == "test_id"
