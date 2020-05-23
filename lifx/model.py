@@ -1,6 +1,6 @@
 from __future__ import annotations
-
-from typing import List
+import abc
+from typing import List, Optional
 from datetime import datetime
 from uuid import UUID
 
@@ -29,10 +29,12 @@ class Scene(BaseModel):
 
 
 class State(BaseModel):
-    selector: str
-    brightness: float
-    color: Color
-
+    selector: Optional[str]
+    brightness: Optional[float]
+    color: Optional[str]
+    power: Optional[str]
+    duration: Optional[float]
+    infrared: Optional[float]
 
 class Capabilities(BaseModel):
     has_color: bool
@@ -52,7 +54,7 @@ class Product(BaseModel):
   capabilities: Capabilities
 
 
-class Light(BaseModel):
+class LightProperties(BaseModel):
     id: str
     uuid: UUID
     label: str

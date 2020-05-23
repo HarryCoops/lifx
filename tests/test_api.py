@@ -1,4 +1,4 @@
-from lifx import api, model
+from lifx import api, model, session, light
 import responses
 import pytest
 import pathlib
@@ -14,7 +14,8 @@ def fx_test_api() -> api.Api:
         "https://api.lifx.com/v1/lights",
         status=200
     )
-    return api.Api("test-token")
+    test_session = session.Session("test-token")
+    return api.Api(test_session)
 
 @responses.activate
 def test_get_all__empty(fx_test_api: api.Api):
@@ -38,7 +39,7 @@ def test_get_all__length_one(fx_test_api: api.Api):
     )
     lights = fx_test_api.list_all()
     assert len(lights) == 1
-    assert isinstance(lights[0], model.Light)
+    assert isinstance(lights[0], light.Light)
     assert lights[0].id == "test_id"
 
 @responses.activate
@@ -53,8 +54,8 @@ def test_get_all__length_two(fx_test_api: api.Api):
     )
     lights = fx_test_api.list_all()
     assert len(lights) == 2
-    assert isinstance(lights[0], model.Light)
-    assert isinstance(lights[1], model.Light)
+    assert isinstance(lights[0], light.Light)
+    assert isinstance(lights[1], light.Light)
     assert lights[0].id == "test_id_1"
     assert lights[1].id == "test_id_2"
 
@@ -71,7 +72,7 @@ def test_get_group(fx_test_api: api.Api):
     )
     lights = fx_test_api.list_group_by_label("test_label")
     assert len(lights) == 1
-    assert isinstance(lights[0], model.Light)
+    assert isinstance(lights[0], light.Light)
     assert lights[0].id == "test_id"
 
 @responses.activate
@@ -86,7 +87,7 @@ def test_get_location(fx_test_api: api.Api):
     )
     lights = fx_test_api.list_location_by_label("test-label")
     assert len(lights) == 1
-    assert isinstance(lights[0], model.Light)
+    assert isinstance(lights[0], light.Light)
     assert lights[0].id == "test_id"
 
 @responses.activate
@@ -99,6 +100,6 @@ def test_get_by_label(fx_test_api: api.Api):
         "https://api.lifx.com/v1/lights/label:test-label",
         json=req_json
     )    
-    light = fx_test_api.get_light_by_label("test-label")
-    assert isinstance(light, model.Light)
-    assert light.id == "test_id"
+    _light = fx_test_api.get_light_by_label("test-label")
+    assert isinstance(_light, light.Light)
+    assert _light.id == "test_id"
