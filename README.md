@@ -1,13 +1,10 @@
 # Lifx Python Library
 
-## Plan
-- Going to use `requests` library
+Pythonn wrapper for the lifx rest API.
 
+To run tests using Docker `./scripts/run-test.sh`
 
-To do:
-- [x] Decide on libraries / frameworks 
-- [x] Sketch out architecture / design
-- [ ] Figure out how to do auth (how to configure and store etc)
-- [ ] Set up linting, typechecking, formatting, dev scripts
-- [x] Can use [this](https://pypi.org/project/responses/) for testing
-- [ ] Flesh out 'setting' part of api
+## TODO:
+ - [ ] Add tests for state modification
+ - [ ] Add Api Class for getting all selectors, and scenes
+ - [ ] Write documentation
