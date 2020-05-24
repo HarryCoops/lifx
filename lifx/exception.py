@@ -1,11 +1,5 @@
 class AuthorizationException(Exception):
 
-    def __init__(self, expression, message):
-        self.expression = expression
-        self.message = message
-
-class LightNotFoundException(Exception):
-
-    def __init__(self, expression, message):
-        self.expression = expression
-        self.message = message
+    def __init__(self, token: str):
+        self.message = f"Authorization failed for token {token}"
+        super().__init__(self.message)

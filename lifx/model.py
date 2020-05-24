@@ -11,7 +11,20 @@ class Color(BaseModel):
     hue: int
     saturation: int
     kelvin: int
+    brightness: Optional[float]
 
+    def __str__(self) -> str:
+        ret = ""
+        if self.hue:
+            ret += f"hue:{self.hue}"
+        if self.saturation:
+            ret += f"saturation:{self.saturation}"
+        if self.kelvin:
+            ret += f"kelvin:{self.kelvin}"
+        if self.brightness:
+            ret += f"brightness:{self.brightness}"
+        return ret
+        
 
 class Group(BaseModel):
     id: str
@@ -64,7 +77,7 @@ class Product(BaseModel):
   capabilities: Capabilities
 
 
-class LightProperties(BaseModel):
+class Light(BaseModel):
     id: str
     uuid: UUID
     label: str

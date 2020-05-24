@@ -4,13 +4,13 @@ from lifx.exception import AuthorizationException
 
 class Session:
 
-    def __init__(self, token: str) -> None:
+    def __init__(self, token: str) -> int:
         self.token = token
         self.headers = {"Authorization": f"Bearer {token}"}
         self.base = "https://api.lifx.com/v1/"
         response = requests.get(self.base + "lights", headers=self.headers)
         if response.status_code == 401:
-            raise AuthorizationException(f"Authorization failed for token {token}")
+            raise AuthorizationException(token)
 
     def get(self, path: str) -> dict:
         response = requests.get(

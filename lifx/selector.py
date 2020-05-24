@@ -1,10 +1,10 @@
-from typing import Optional
-import abc
+from typing import Optional, List
+from typing_extensions import runtime, Protocol
 
 from lifx import model
 
-
-class Session(abc.ABC):
+@runtime
+class Session(Protocol):
 
     def get(self, path: str) -> dict:
         ...
@@ -16,29 +16,31 @@ class Session(abc.ABC):
         ...
 
 
-class Light:
+class Selector:
 
-    def __init__(self, properties: model.LightProperties, session: Session) -> None:
+    def __init__(
+        self, 
+        selector: str, 
+        session: Session
+    ) -> None:
         self.session = session
-        self.properties = properties
+        self.selector = selector
+        self._update_lights()
 
     def set_state(self, state: model.State) -> None:
-        '''
-        if state.color is not None:
-            res = self.session.get(f"color?string={state.color}")
-            if res.status_code != 200:
-                raise ValueError(f"Invalid color string in state: {state.color}")
-        '''
-        self.session.put(f"lights/id:{self.properties.id}/state", state.dict(exclude_unset=True))
+        self.session.put(f"lights/{self.selector}/state", state.dict(exclude_unset=True))
+        self._update_lights()
 
     def state_delta(self, state_delta: model.StateDelta) -> None:
         self.session.post(
-            f"lights/id:{self.properties.id}/state/delta",
+            f"lights/{self.selector}/state/delta",
             state_delta.dict(exclude_unset=True)
         )
+        self._update_lights()
 
     def toggle_power(self) -> None:
-        self.session.post(f"lights/id:{self.properties.id}/toggle", {})
+        self.session.post(f"lights/{self.selector}/toggle", {})
+        self._update_lights()
 
     def breathe_effect(
         self, 
@@ -60,13 +62,14 @@ class Light:
             "peak": peak
         }
         body = {k:v for k, v in body.items() if v is not None}
-        self.session.post(f"lights/id:{self.properties.id}/effects/breathe", body)
+        self.session.post(f"lights/{self.selector}/effects/breathe", body)
+        self._update_lights()
 
     def move(
         self, 
         direction: Optional[str],
         period: Optional[float],
-        cycles: Optiona[float],
+        cycles: Optional[float],
         power_on: Optional[bool],
     ) -> None:
         body = {
@@ -76,13 +79,14 @@ class Light:
             "power_on": power_on,
         }
         body = {k:v for k, v in body.items() if v is not None}
-        self.session.post(f"lights/id:{self.properties.id}/effects/move", body)
+        self.session.post(f"lights/{self.selector}/effects/move", body)
+        self._update_lights()
 
-    def flame(
+    def flame_effect(
         self, 
-        period: Optional[float],
-        duration: Optiona[float],
-        power_on: Optional[bool],
+        period: Optional[float] = None,
+        duration: Optional[float] = None,
+        power_on: Optional[bool] = None,
     ) -> None:
         body = {
             "duration": duration,
@@ -90,7 +94,8 @@ class Light:
             "power_on": power_on,
         }
         body = {k:v for k, v in body.items() if v is not None}
-        self.session.post(f"lights/id:{self.properties.id}/effects/flame", body)
+        self.session.post(f"lights/{self.selector}/effects/flame", body)
+        self._update_lights()
 
     def pulse_effect(
         self, 
@@ -110,37 +115,42 @@ class Light:
             "power_on": power_on,
         }
         body = {k:v for k, v in body.items() if v is not None}
-        self.session.post(f"lights/id:{self.properties.id}/effects/pulse", body)
+        self.session.post(f"lights/{self.selector}/effects/pulse", body)
+        self._update_lights()
 
     def effects_off(self, power_off: Optional[bool] = None) -> None:
         self.session.post(
-            f"lights'/id:{self.properties.id}/effects/off", {power_off: power_off}
+            f"lights'/{self.selector}/effects/off", {power_off: power_off}
         )
+        self._update_lights()
 
     def cycle(
         self, 
-        states: Optional[List[State]] = None, 
-        default: Optional[State] = None,
+        states: Optional[List[model.State]] = None, 
+        default: Optional[model.State] = None,
         direction: Optional[str] = None,
     ) -> None:
+        states_dicts = None
+        default_dict = None
         if states is not None:
-            states = [state.dict(exclude_unset=True) for state in states]
+            states_dicts = [state.dict(exclude_unset=True) for state in states]
         if default is not None:
-            default = default.dict(exclude_unset=True)
+            default_dict = default.dict(exclude_unset=True)
         body = {
-            "states": states,
-            "default": default,
+            "states": states_dicts,
+            "default": default_dict,
             "direction": direction
         }
         body = {k:v for k, v in body.items() if v is not None}
         self.session.post(
-            f"lights/id:{self.properties.id}/effects/cycle",
+            f"lights/{self.selector}/effects/cycle",
             body
         )
+        self._update_lights()
 
+    def _update_lights(self) -> None:
+        res = self.session.get(f"lights/{self.selector}")
+        self.lights = [model.Light(**light_json) for light_json in res]
 
-
-
-
-    def __getattr__(self, item):
-        return getattr(self.properties, item)
+    def get_lights(self) -> List[model.Light]:
+        return self.lights
