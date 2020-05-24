@@ -36,6 +36,16 @@ class State(BaseModel):
     duration: Optional[float]
     infrared: Optional[float]
 
+
+class StateDelta(BaseModel):
+    brightness: Optional[float]
+    hue: Optional[float]
+    saturation: Optional[float]
+    power: Optional[str]
+    duration: Optional[float]
+    infrared: Optional[float]
+    kelvin: Optional[float]
+
 class Capabilities(BaseModel):
     has_color: bool
     has_variable_color_temp: bool
