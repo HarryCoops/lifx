@@ -13,6 +13,8 @@ pydantic = "^1.5.1"
 pytest = "^5.4"
 responses = "^0.10.14"
 yapf = "^0.30.0"
+sphinx = "^3.0"
+sphinx_autodoc_typehints = "^1.10"
 
 [tool.poetry.dev-dependencies]
 

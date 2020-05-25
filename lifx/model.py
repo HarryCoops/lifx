@@ -8,22 +8,10 @@ from pydantic import BaseModel, Json
 
 
 class Color(BaseModel):
-    hue: int
-    saturation: int
-    kelvin: int
+    hue:  Optional[int]
+    saturation: Optional[float]
+    kelvin: Optional[int]
     brightness: Optional[float]
-
-    def __str__(self) -> str:
-        ret = ""
-        if self.hue:
-            ret += f"hue:{self.hue}"
-        if self.saturation:
-            ret += f"saturation:{self.saturation}"
-        if self.kelvin:
-            ret += f"kelvin:{self.kelvin}"
-        if self.brightness:
-            ret += f"brightness:{self.brightness}"
-        return ret
 
 
 class Group(BaseModel):
@@ -36,19 +24,19 @@ class Location(BaseModel):
     name: str
 
 
-class Scene(BaseModel):
-    uuid: UUID
-    id: str
-    states: List[State]
-
-
 class State(BaseModel):
     selector: Optional[str]
     brightness: Optional[float]
-    color: Optional[str]
+    color: Optional[Color]
     power: Optional[str]
     duration: Optional[float]
     infrared: Optional[float]
+
+
+class Scene(BaseModel):
+    uuid: UUID
+    name: str
+    states: List[State]
 
 
 class StateDelta(BaseModel):

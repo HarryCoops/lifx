@@ -2,18 +2,7 @@ from typing import List
 from typing_extensions import runtime, Protocol
 
 from lifx.selector import Selector
-
-
-@runtime
-class Session(Protocol):
-    def get(self, path: str) -> dict:
-        ...
-
-    def post(self, path: str, body: dict) -> dict:
-        ...
-
-    def put(self, path: str, body: dict) -> dict:
-        ...
+from lifx.session import Session
 
 
 def get_selectors(session: Session) -> List[str]:
