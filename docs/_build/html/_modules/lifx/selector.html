@@ -39,6 +39,18 @@
 
 
 <div class="viewcode-block" id="Selector"><a class="viewcode-back" href="../../lifx.html#lifx.selector.Selector">[docs]</a><span class="k">class</span> <span class="nc">Selector</span><span class="p">:</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class representing a single light or a group of lights that </span>
+<span class="sd">    share a selector e.g. group, location etc. This class provides</span>
+<span class="sd">    methods to alter the state of the whole group of lights.</span>
+
+<span class="sd">    :param selector: string used to select lights e.g. group:bedroom \</span>
+<span class="sd">    or id:28sha2jn2 (possibe selectors can be listed using lifx.get_selectors)</span>
+<span class="sd">    :param session: session object used to perform API calls</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">selector</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">session</span><span class="p">:</span> <span class="n">Session</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">session</span> <span class="o">=</span> <span class="n">session</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">selector</span> <span class="o">=</span> <span class="n">selector</span>

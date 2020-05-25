@@ -409,6 +409,17 @@
 <dt id="lifx.selector.Selector">
 <em class="property">class </em><code class="sig-prename descclassname">lifx.selector.</code><code class="sig-name descname">Selector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">selector</span></em>, <em class="sig-param"><span class="n">session</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/selector.html#Selector"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.selector.Selector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class representing a single light or a group of lights that 
+share a selector e.g. group, location etc. This class provides
+methods to alter the state of the whole group of lights.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>selector</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – string used to select lights e.g. group:bedroom     or id:28sha2jn2 (possibe selectors can be listed using lifx.get_selectors)</p></li>
+<li><p><strong>session</strong> (<a class="reference internal" href="#lifx.session.Session" title="lifx.session.Session"><code class="xref py py-class docutils literal notranslate"><span class="pre">Session</span></code></a>) – session object used to perform API calls</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt id="lifx.selector.Selector.breathe_effect">
 <code class="sig-name descname">breathe_effect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">color</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">from_color</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">period</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">cycles</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">persist</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">power_on</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">peak</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/selector.html#Selector.breathe_effect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.selector.Selector.breathe_effect" title="Permalink to this definition">¶</a></dt>
@@ -518,12 +529,26 @@
 <dt id="lifx.session.Session">
 <em class="property">class </em><code class="sig-prename descclassname">lifx.session.</code><code class="sig-name descname">Session</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">token</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/session.html#Session"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.session.Session" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Layer of abstraction between API Classes and the requests library.
+Handles the actual API calls and authentication.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>token</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Lifx api authorization token</p>
+</dd>
+</dl>
 <dl class="py method">
 <dt id="lifx.session.Session.get">
 <code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/session.html#Session.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.session.Session.get" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+<dd><p>Perform a GET reqeust to <a class="reference external" href="https://api.lifx.com/v1">https://api.lifx.com/v1</a>/{path}</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – string containing path and any query string</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>serialized JSON dictionary of reponse from API</p>
 </dd>
 </dl>
 </dd></dl>
@@ -531,9 +556,19 @@
 <dl class="py method">
 <dt id="lifx.session.Session.post">
 <code class="sig-name descname">post</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em>, <em class="sig-param"><span class="n">body</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/session.html#Session.post"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.session.Session.post" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+<dd><p>Perform a POST reqeust to <a class="reference external" href="https://api.lifx.com/v1">https://api.lifx.com/v1</a>/{path}</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – string containing path and any query string</p></li>
+<li><p><strong>body</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>) – JSON serializable dict to send in request body</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>serialized JSON dictionary of reponse from API</p>
 </dd>
 </dl>
 </dd></dl>
@@ -541,9 +576,19 @@
 <dl class="py method">
 <dt id="lifx.session.Session.put">
 <code class="sig-name descname">put</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em>, <em class="sig-param"><span class="n">body</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/session.html#Session.put"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.session.Session.put" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+<dd><p>Perform a PUT reqeust to <a class="reference external" href="https://api.lifx.com/v1">https://api.lifx.com/v1</a>/{path}</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – string containing path and any query string</p></li>
+<li><p><strong>body</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>) – JSON serializable dict to send in request body</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>serialized JSON dictionary of reponse from API</p>
 </dd>
 </dl>
 </dd></dl>

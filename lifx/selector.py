@@ -6,12 +6,29 @@ from lifx.session import Session
 
 
 class Selector:
+
+    """
+    Class representing a single light or a group of lights that 
+    share a selector e.g. group, location etc. This class provides
+    methods to alter the state of the whole group of lights.
+
+    :param selector: string used to select lights e.g. group:bedroom \
+    or id:28sha2jn2 (possibe selectors can be listed using lifx.get_selectors)
+    :param session: session object used to perform API calls
+
+    """
+
     def __init__(self, selector: str, session: Session) -> None:
         self.session = session
         self.selector = selector
         self._update_lights()
 
     def set_state(self, state: model.State) -> None:
+        """
+        Set the state of the selected lights 
+
+        :param state: state to be applied to the selected lights
+        """
         self.session.put(f"lights/{self.selector}/state",
                          state.dict(exclude_unset=True))
         self._update_lights()
