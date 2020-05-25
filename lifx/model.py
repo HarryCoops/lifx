@@ -24,7 +24,7 @@ class Color(BaseModel):
         if self.brightness:
             ret += f"brightness:{self.brightness}"
         return ret
-        
+
 
 class Group(BaseModel):
     id: str
@@ -37,6 +37,7 @@ class Location(BaseModel):
 
 
 class Scene(BaseModel):
+    uuid: UUID
     id: str
     states: List[State]
 
@@ -59,6 +60,7 @@ class StateDelta(BaseModel):
     infrared: Optional[float]
     kelvin: Optional[float]
 
+
 class Capabilities(BaseModel):
     has_color: bool
     has_variable_color_temp: bool
@@ -71,10 +73,10 @@ class Capabilities(BaseModel):
 
 
 class Product(BaseModel):
-  name: str
-  identifier: str
-  company: str
-  capabilities: Capabilities
+    name: str
+    identifier: str
+    company: str
+    capabilities: Capabilities
 
 
 class Light(BaseModel):

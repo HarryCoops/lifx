@@ -228,6 +228,14 @@ version = "0.1.9"
 
 [[package]]
 category = "main"
+description = "A formatter for Python code."
+name = "yapf"
+optional = false
+python-versions = "*"
+version = "0.30.0"
+
+[[package]]
+category = "main"
 description = "Backport of pathlib-compatible object wrapper for zip files"
 marker = "python_version < \"3.8\""
 name = "zipp"
@@ -236,7 +244,7 @@ python-versions = ">=3.6"
 version = "3.1.0"
 
 [metadata]
-content-hash = "8b3ebf34db3098f038a20fa0bde94873f54fab4f62194c155c67dbd5c20152f0"
+content-hash = "2da97e8e425afbce7c1da4083b9fe0dbed416dbf91ae4c26438fa4264ff1ce64"
 python-versions = "^3.7"
 
 [metadata.hashes]
@@ -263,4 +271,5 @@ typed-ast = ["0666aa36131496aed8f7be0410ff974562ab7eeac11ef351def9ea6fa28f6355",
 typing-extensions = ["6e95524d8a547a91e08f404ae485bbb71962de46967e1b71a0cb89af24e761c5", "79ee589a3caca649a9bfd2a8de4709837400dfa00b6cc81962a1e6a1815969ae", "f8d2bd89d25bc39dabe7d23df520442fa1d8969b82544370e03d88b5a591c392"]
 urllib3 = ["3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527", "88206b0eb87e6d677d424843ac5209e3fb9d0190d0ee169599165ec25e9d9115"]
 wcwidth = ["cafe2186b3c009a04067022ce1dcd79cb38d8d65ee4f4791b8888d6599d1bbe1", "ee73862862a156bf77ff92b09034fc4825dd3af9cf81bc5b360668d425f3c5f1"]
+yapf = ["3000abee4c28daebad55da6c85f3cd07b8062ce48e2e9943c8da1b9667d48427", "3abf61ba67cf603069710d30acbc88cfe565d907e16ad81429ae90ce9651e0c9"]
 zipp = ["aa36550ff0c0b7ef7fa639055d797116ee891440eac1a56f378e2d3179e0320b", "c599e4d75c98f6798c509911d08a22e6c021d074469042177c8c86fb92eefd96"]

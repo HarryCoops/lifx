@@ -2,8 +2,8 @@ import requests
 
 from lifx.exception import AuthorizationException
 
-class Session:
 
+class Session:
     def __init__(self, token: str) -> int:
         self.token = token
         self.headers = {"Authorization": f"Bearer {token}"}
@@ -37,4 +37,3 @@ class Session:
         )
         response.raise_for_status()
         return response.json()
-
