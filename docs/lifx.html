@@ -1,0 +1,750 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>lifx package &#8212; lifx  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to lifx’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="lifx-package">
+<h1>lifx package<a class="headerlink" href="#lifx-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-lifx.color">
+<span id="lifx-color-module"></span><h2>lifx.color module<a class="headerlink" href="#module-lifx.color" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="lifx.color.get_color">
+<code class="sig-prename descclassname">lifx.color.</code><code class="sig-name descname">get_color</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">session</span></em>, <em class="sig-param"><span class="n">color</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/color.html#get_color"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.color.get_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a saturated Color object from a string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>session</strong> (<a class="reference internal" href="#lifx.session.Session" title="lifx.session.Session"><code class="xref py py-class docutils literal notranslate"><span class="pre">Session</span></code></a>) – authenticated session</p></li>
+<li><p><strong>color</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – color string</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#lifx.model.Color" title="lifx.model.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-lifx.exception">
+<span id="lifx-exception-module"></span><h2>lifx.exception module<a class="headerlink" href="#module-lifx.exception" title="Permalink to this headline">¶</a></h2>
+<dl class="py exception">
+<dt id="lifx.exception.AuthorizationException">
+<em class="property">exception </em><code class="sig-prename descclassname">lifx.exception.</code><code class="sig-name descname">AuthorizationException</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">token</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/exception.html#AuthorizationException"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.exception.AuthorizationException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-lifx.get_selectors">
+<span id="lifx-get-selectors-module"></span><h2>lifx.get_selectors module<a class="headerlink" href="#module-lifx.get_selectors" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="lifx.get_selectors.get_selectors">
+<code class="sig-prename descclassname">lifx.get_selectors.</code><code class="sig-name descname">get_selectors</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">session</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/get_selectors.html#get_selectors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.get_selectors.get_selectors" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-lifx.model">
+<span id="lifx-model-module"></span><h2>lifx.model module<a class="headerlink" href="#module-lifx.model" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="lifx.model.Capabilities">
+<em class="property">class </em><code class="sig-prename descclassname">lifx.model.</code><code class="sig-name descname">Capabilities</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/model.html#Capabilities"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.model.Capabilities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydantic.main.BaseModel</span></code></p>
+<dl class="py attribute">
+<dt id="lifx.model.Capabilities.has_chain">
+<code class="sig-name descname">has_chain</code><em class="property">: bool</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Capabilities.has_chain" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.Capabilities.has_color">
+<code class="sig-name descname">has_color</code><em class="property">: bool</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Capabilities.has_color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.Capabilities.has_ir">
+<code class="sig-name descname">has_ir</code><em class="property">: bool</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Capabilities.has_ir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.Capabilities.has_matrix">
+<code class="sig-name descname">has_matrix</code><em class="property">: bool</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Capabilities.has_matrix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.Capabilities.has_multizone">
+<code class="sig-name descname">has_multizone</code><em class="property">: bool</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Capabilities.has_multizone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.Capabilities.has_variable_color_temp">
+<code class="sig-name descname">has_variable_color_temp</code><em class="property">: bool</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Capabilities.has_variable_color_temp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.Capabilities.max_kelvin">
+<code class="sig-name descname">max_kelvin</code><em class="property">: int</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Capabilities.max_kelvin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.Capabilities.min_kelvin">
+<code class="sig-name descname">min_kelvin</code><em class="property">: int</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Capabilities.min_kelvin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="lifx.model.Color">
+<em class="property">class </em><code class="sig-prename descclassname">lifx.model.</code><code class="sig-name descname">Color</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/model.html#Color"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.model.Color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydantic.main.BaseModel</span></code></p>
+<dl class="py attribute">
+<dt id="lifx.model.Color.brightness">
+<code class="sig-name descname">brightness</code><em class="property">: Optional[float]</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Color.brightness" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.Color.hue">
+<code class="sig-name descname">hue</code><em class="property">: Optional[int]</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Color.hue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.Color.kelvin">
+<code class="sig-name descname">kelvin</code><em class="property">: Optional[int]</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Color.kelvin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.Color.saturation">
+<code class="sig-name descname">saturation</code><em class="property">: Optional[float]</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Color.saturation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="lifx.model.Group">
+<em class="property">class </em><code class="sig-prename descclassname">lifx.model.</code><code class="sig-name descname">Group</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/model.html#Group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.model.Group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydantic.main.BaseModel</span></code></p>
+<dl class="py attribute">
+<dt id="lifx.model.Group.id">
+<code class="sig-name descname">id</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Group.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.Group.name">
+<code class="sig-name descname">name</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Group.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="lifx.model.Light">
+<em class="property">class </em><code class="sig-prename descclassname">lifx.model.</code><code class="sig-name descname">Light</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/model.html#Light"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.model.Light" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydantic.main.BaseModel</span></code></p>
+<dl class="py attribute">
+<dt id="lifx.model.Light.brightness">
+<code class="sig-name descname">brightness</code><em class="property">: float</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Light.brightness" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.Light.color">
+<code class="sig-name descname">color</code><em class="property">: Color</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Light.color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.Light.connected">
+<code class="sig-name descname">connected</code><em class="property">: bool</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Light.connected" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.Light.effect">
+<code class="sig-name descname">effect</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Light.effect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.Light.group">
+<code class="sig-name descname">group</code><em class="property">: Group</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Light.group" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.Light.id">
+<code class="sig-name descname">id</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Light.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.Light.label">
+<code class="sig-name descname">label</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Light.label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.Light.last_seen">
+<code class="sig-name descname">last_seen</code><em class="property">: datetime</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Light.last_seen" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.Light.location">
+<code class="sig-name descname">location</code><em class="property">: Location</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Light.location" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.Light.power">
+<code class="sig-name descname">power</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Light.power" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.Light.product">
+<code class="sig-name descname">product</code><em class="property">: Product</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Light.product" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.Light.seconds_since_seen">
+<code class="sig-name descname">seconds_since_seen</code><em class="property">: int</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Light.seconds_since_seen" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.Light.uuid">
+<code class="sig-name descname">uuid</code><em class="property">: UUID</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Light.uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="lifx.model.Location">
+<em class="property">class </em><code class="sig-prename descclassname">lifx.model.</code><code class="sig-name descname">Location</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/model.html#Location"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.model.Location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydantic.main.BaseModel</span></code></p>
+<dl class="py attribute">
+<dt id="lifx.model.Location.id">
+<code class="sig-name descname">id</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Location.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.Location.name">
+<code class="sig-name descname">name</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Location.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="lifx.model.Product">
+<em class="property">class </em><code class="sig-prename descclassname">lifx.model.</code><code class="sig-name descname">Product</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/model.html#Product"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.model.Product" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydantic.main.BaseModel</span></code></p>
+<dl class="py attribute">
+<dt id="lifx.model.Product.capabilities">
+<code class="sig-name descname">capabilities</code><em class="property">: Capabilities</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Product.capabilities" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.Product.company">
+<code class="sig-name descname">company</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Product.company" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.Product.identifier">
+<code class="sig-name descname">identifier</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Product.identifier" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.Product.name">
+<code class="sig-name descname">name</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Product.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="lifx.model.Scene">
+<em class="property">class </em><code class="sig-prename descclassname">lifx.model.</code><code class="sig-name descname">Scene</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/model.html#Scene"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.model.Scene" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydantic.main.BaseModel</span></code></p>
+<dl class="py attribute">
+<dt id="lifx.model.Scene.name">
+<code class="sig-name descname">name</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Scene.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.Scene.states">
+<code class="sig-name descname">states</code><em class="property">: List[State]</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Scene.states" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.Scene.uuid">
+<code class="sig-name descname">uuid</code><em class="property">: UUID</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.Scene.uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="lifx.model.State">
+<em class="property">class </em><code class="sig-prename descclassname">lifx.model.</code><code class="sig-name descname">State</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/model.html#State"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.model.State" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydantic.main.BaseModel</span></code></p>
+<dl class="py attribute">
+<dt id="lifx.model.State.brightness">
+<code class="sig-name descname">brightness</code><em class="property">: Optional[float]</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.State.brightness" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.State.color">
+<code class="sig-name descname">color</code><em class="property">: Optional[Color]</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.State.color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.State.duration">
+<code class="sig-name descname">duration</code><em class="property">: Optional[float]</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.State.duration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.State.infrared">
+<code class="sig-name descname">infrared</code><em class="property">: Optional[float]</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.State.infrared" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.State.power">
+<code class="sig-name descname">power</code><em class="property">: Optional[str]</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.State.power" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.State.selector">
+<code class="sig-name descname">selector</code><em class="property">: Optional[str]</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.State.selector" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="lifx.model.StateDelta">
+<em class="property">class </em><code class="sig-prename descclassname">lifx.model.</code><code class="sig-name descname">StateDelta</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/model.html#StateDelta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.model.StateDelta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydantic.main.BaseModel</span></code></p>
+<dl class="py attribute">
+<dt id="lifx.model.StateDelta.brightness">
+<code class="sig-name descname">brightness</code><em class="property">: Optional[float]</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.StateDelta.brightness" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.StateDelta.duration">
+<code class="sig-name descname">duration</code><em class="property">: Optional[float]</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.StateDelta.duration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.StateDelta.hue">
+<code class="sig-name descname">hue</code><em class="property">: Optional[float]</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.StateDelta.hue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.StateDelta.infrared">
+<code class="sig-name descname">infrared</code><em class="property">: Optional[float]</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.StateDelta.infrared" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.StateDelta.kelvin">
+<code class="sig-name descname">kelvin</code><em class="property">: Optional[float]</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.StateDelta.kelvin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.StateDelta.power">
+<code class="sig-name descname">power</code><em class="property">: Optional[str]</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.StateDelta.power" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="lifx.model.StateDelta.saturation">
+<code class="sig-name descname">saturation</code><em class="property">: Optional[float]</em><em class="property"> = None</em><a class="headerlink" href="#lifx.model.StateDelta.saturation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lifx.scenes">
+<span id="lifx-scenes-module"></span><h2>lifx.scenes module<a class="headerlink" href="#module-lifx.scenes" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="lifx.scenes.activate_scene_by_id">
+<code class="sig-prename descclassname">lifx.scenes.</code><code class="sig-name descname">activate_scene_by_id</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">session</span></em>, <em class="sig-param"><span class="n">scene_id</span></em>, <em class="sig-param"><span class="n">ignore</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">duration</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">overrides</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">fast</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/scenes.html#activate_scene_by_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.scenes.activate_scene_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="lifx.scenes.list_scenes">
+<code class="sig-prename descclassname">lifx.scenes.</code><code class="sig-name descname">list_scenes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">session</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/scenes.html#list_scenes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.scenes.list_scenes" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#lifx.model.Scene" title="lifx.model.Scene"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scene</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-lifx.selector">
+<span id="lifx-selector-module"></span><h2>lifx.selector module<a class="headerlink" href="#module-lifx.selector" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="lifx.selector.Selector">
+<em class="property">class </em><code class="sig-prename descclassname">lifx.selector.</code><code class="sig-name descname">Selector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">selector</span></em>, <em class="sig-param"><span class="n">session</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/selector.html#Selector"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.selector.Selector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class representing a single light or a group of lights that 
+share a selector e.g. group, location etc. This class provides
+methods to alter the state of the whole group of lights.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>selector</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – string used to select lights e.g. group:bedroom     or id:28sha2jn2 (possibe selectors can be listed using lifx.get_selectors)</p></li>
+<li><p><strong>session</strong> (<a class="reference internal" href="#lifx.session.Session" title="lifx.session.Session"><code class="xref py py-class docutils literal notranslate"><span class="pre">Session</span></code></a>) – session object used to perform API calls</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="lifx.selector.Selector.breathe_effect">
+<code class="sig-name descname">breathe_effect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">color</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">from_color</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">period</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">cycles</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">persist</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">power_on</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">peak</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/selector.html#Selector.breathe_effect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.selector.Selector.breathe_effect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the breathe effect to the selected lights
+See <a class="reference external" href="https://api.developer.lifx.com/docs/breathe-effect">https://api.developer.lifx.com/docs/breathe-effect</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>color</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – The color to use for the breathe effect</p></li>
+<li><p><strong>from_color</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – The color to start the effect from.         If this parameter is omitted then the color the bulb is currently         set to is used instead.</p></li>
+<li><p><strong>period</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – The time in seconds for one cycle of the effect.</p></li>
+<li><p><strong>cycle</strong> – The number of times to repeat the effect.</p></li>
+<li><p><strong>persist</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]) – If false set the light back to its previous value         when effect ends, if true leave the last effect color.</p></li>
+<li><p><strong>power_off</strong> – If true, turn the bulb on if it is not already on.</p></li>
+<li><p><strong>peak</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – Defines where in a period the target color is at its maximum.         Minimum 0.0, maximum 1.0.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="lifx.selector.Selector.cycle">
+<code class="sig-name descname">cycle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">states</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">direction</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/selector.html#Selector.cycle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.selector.Selector.cycle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cycle selected lights through states 
+See <a class="reference external" href="https://api.developer.lifx.com/docs/cycle">https://api.developer.lifx.com/docs/cycle</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>states</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#lifx.model.State" title="lifx.model.State"><code class="xref py py-class docutils literal notranslate"><span class="pre">State</span></code></a>]]) – list of States to be cycled through.</p></li>
+<li><p><strong>default</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<a class="reference internal" href="#lifx.model.State" title="lifx.model.State"><code class="xref py py-class docutils literal notranslate"><span class="pre">State</span></code></a>]) – Default values to use when not specified in each State object.</p></li>
+<li><p><strong>direction</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – Direction in which to cycle through the list. Can be forward or backward</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="lifx.selector.Selector.effects_off">
+<code class="sig-name descname">effects_off</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">power_off</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/selector.html#Selector.effects_off"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.selector.Selector.effects_off" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turns off any running effects on the device. This includes any waveform (breathe or pulse) as well as Tile or Multizone firmware effects.</p>
+<p>Also, if you specify power_off as true then the lights will also be powered off.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="lifx.selector.Selector.flame_effect">
+<code class="sig-name descname">flame_effect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">period</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">duration</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">power_on</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/selector.html#Selector.flame_effect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.selector.Selector.flame_effect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the flame effect to the selected lights
+See <a class="reference external" href="https://api.developer.lifx.com/docs/flame-effect">https://api.developer.lifx.com/docs/flame-effect</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>duration</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – How long the animation lasts for in seconds.         Not specifying a duration makes the animation never stop.         Specifying 0 makes the animation stop. Note that there is a known bug         where the tile remains in the animation once it has completed if         duration is nonzero.</p></li>
+<li><p><strong>period</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – This controls how quickly the flame runs. It is measured         in seconds. A lower number means the animation is faster</p></li>
+<li><p><strong>power_off</strong> – If true, turn the bulb on if it is not already on.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="lifx.selector.Selector.get_lights">
+<code class="sig-name descname">get_lights</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/selector.html#Selector.get_lights"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.selector.Selector.get_lights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of Lights selected</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#lifx.model.Light" title="lifx.model.Light"><code class="xref py py-class docutils literal notranslate"><span class="pre">Light</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="lifx.selector.Selector.move">
+<code class="sig-name descname">move</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">direction</span></em>, <em class="sig-param"><span class="n">period</span></em>, <em class="sig-param"><span class="n">cycles</span></em>, <em class="sig-param"><span class="n">power_on</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/selector.html#Selector.move"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.selector.Selector.move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the move effect to the selected lights
+See <a class="reference external" href="https://api.developer.lifx.com/docs/move-effect">https://api.developer.lifx.com/docs/move-effect</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>direction</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – Move direction, can be ‘forward’ or ‘backward’</p></li>
+<li><p><strong>period</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – The time in seconds for one cycle of the effect.</p></li>
+<li><p><strong>cycle</strong> – The number of times to repeat the effect.</p></li>
+<li><p><strong>power_off</strong> – If true, turn the bulb on if it is not already on.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="lifx.selector.Selector.pulse_effect">
+<code class="sig-name descname">pulse_effect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">color</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">from_color</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">period</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">cycles</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">persist</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">power_on</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/selector.html#Selector.pulse_effect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.selector.Selector.pulse_effect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the pulse effect to the selected lights
+See <a class="reference external" href="https://api.developer.lifx.com/docs/pulse-effect">https://api.developer.lifx.com/docs/pulse-effect</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>color</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – The color to use for the pulse effect</p></li>
+<li><p><strong>from_color</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – The color to start the effect from.         If this parameter is omitted then the color the bulb is currently         set to is used instead.</p></li>
+<li><p><strong>period</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – The time in seconds for one cycle of the effect.</p></li>
+<li><p><strong>cycle</strong> – The number of times to repeat the effect.</p></li>
+<li><p><strong>persist</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]) – If false set the light back to its previous value         when effect ends, if true leave the last effect color.</p></li>
+<li><p><strong>power_off</strong> – If true, turn the bulb on if it is not already on.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="lifx.selector.Selector.set_state">
+<code class="sig-name descname">set_state</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">state</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/selector.html#Selector.set_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.selector.Selector.set_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the state of the selected lights</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference internal" href="#lifx.model.State" title="lifx.model.State"><code class="xref py py-class docutils literal notranslate"><span class="pre">State</span></code></a>) – state to be applied to the selected lights</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="lifx.selector.Selector.state_delta">
+<code class="sig-name descname">state_delta</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">state_delta</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/selector.html#Selector.state_delta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.selector.Selector.state_delta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the state of the selected lights relative to their current states
+Example selector.state_delta(StateDelta(brightness=-0.5)) reduces the brightness
+of selected lights by 0.5</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state_delta</strong> (<a class="reference internal" href="#lifx.model.StateDelta" title="lifx.model.StateDelta"><code class="xref py py-class docutils literal notranslate"><span class="pre">StateDelta</span></code></a>) – Change in state to be applied to selected lights</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="lifx.selector.Selector.toggle_power">
+<code class="sig-name descname">toggle_power</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/selector.html#Selector.toggle_power"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.selector.Selector.toggle_power" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggle the power of the selected lights</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lifx.session">
+<span id="lifx-session-module"></span><h2>lifx.session module<a class="headerlink" href="#module-lifx.session" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="lifx.session.Session">
+<em class="property">class </em><code class="sig-prename descclassname">lifx.session.</code><code class="sig-name descname">Session</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">token</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/session.html#Session"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.session.Session" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Layer of abstraction between API Classes and the requests library.
+Handles the actual API calls and authentication.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>token</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Lifx api authorization token</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="lifx.session.Session.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/session.html#Session.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.session.Session.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform a GET reqeust to <a class="reference external" href="https://api.lifx.com/v1">https://api.lifx.com/v1</a>/{path}</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – string containing path and any query string</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>serialized JSON dictionary of reponse from API</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="lifx.session.Session.post">
+<code class="sig-name descname">post</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em>, <em class="sig-param"><span class="n">body</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/session.html#Session.post"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.session.Session.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform a POST reqeust to <a class="reference external" href="https://api.lifx.com/v1">https://api.lifx.com/v1</a>/{path}</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – string containing path and any query string</p></li>
+<li><p><strong>body</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>) – JSON serializable dict to send in request body</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>serialized JSON dictionary of reponse from API</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="lifx.session.Session.put">
+<code class="sig-name descname">put</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em>, <em class="sig-param"><span class="n">body</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/session.html#Session.put"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.session.Session.put" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform a PUT reqeust to <a class="reference external" href="https://api.lifx.com/v1">https://api.lifx.com/v1</a>/{path}</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – string containing path and any query string</p></li>
+<li><p><strong>body</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>) – JSON serializable dict to send in request body</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>serialized JSON dictionary of reponse from API</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lifx">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-lifx" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">lifx</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">lifx package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lifx.color">lifx.color module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lifx.exception">lifx.exception module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lifx.get_selectors">lifx.get_selectors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lifx.model">lifx.model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lifx.scenes">lifx.scenes module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lifx.selector">lifx.selector module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lifx.session">lifx.session module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lifx">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to lifx’s documentation!</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/lifx.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
