@@ -1,6 +1,7 @@
 # Lifx Python Library
 
-Pythonn wrapper for the lifx rest API.
+Python wrapper for the lifx rest API.
+Docs: https://harrycoops.github.io/lifx/lifx.html
 
 To run tests using Docker `./scripts/run-test.sh`
 
