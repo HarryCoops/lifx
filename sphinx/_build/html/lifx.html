@@ -62,6 +62,7 @@
 <dt id="lifx.exception.AuthorizationException">
 <em class="property">exception </em><code class="sig-prename descclassname">lifx.exception.</code><code class="sig-name descname">AuthorizationException</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">token</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/exception.html#AuthorizationException"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.exception.AuthorizationException" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Exception raised when a session is provided an invalid token.</p>
 </dd></dl>
 
 </div>
@@ -70,7 +71,8 @@
 <dl class="py function">
 <dt id="lifx.get_selectors.get_selectors">
 <code class="sig-prename descclassname">lifx.get_selectors.</code><code class="sig-name descname">get_selectors</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">session</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/get_selectors.html#get_selectors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.get_selectors.get_selectors" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>List all the available selectors for a given session. See     <a class="reference external" href="https://api.developer.lifx.com/v1/docs/selectors">https://api.developer.lifx.com/v1/docs/selectors</a></p>
+<dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
 </dd>
@@ -385,9 +387,19 @@
 <dl class="py function">
 <dt id="lifx.scenes.activate_scene_by_id">
 <code class="sig-prename descclassname">lifx.scenes.</code><code class="sig-name descname">activate_scene_by_id</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">session</span></em>, <em class="sig-param"><span class="n">scene_id</span></em>, <em class="sig-param"><span class="n">ignore</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">duration</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">overrides</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">fast</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/scenes.html#activate_scene_by_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.scenes.activate_scene_by_id" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+<dd><p>Activate a scene by its id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>session</strong> (<a class="reference internal" href="#lifx.session.Session" title="lifx.session.Session"><code class="xref py py-class docutils literal notranslate"><span class="pre">Session</span></code></a>) – session object used to perform API calls</p></li>
+<li><p><strong>scene_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">UUID</span></code>) – UUID of a scene, can be accessed from a scene object     by scene.uuid</p></li>
+<li><p><strong>ignore</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – Any of “power”, “infrared”, “duration”, “intensity”,     “hue”, “saturation”, “brightness” or “kelvin”, specifying that these     properties should not be changed on devices when applying the scene.</p></li>
+<li><p><strong>overrides</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<a class="reference internal" href="#lifx.model.State" title="lifx.model.State"><code class="xref py py-class docutils literal notranslate"><span class="pre">State</span></code></a>]) – A state object as per Set State specifying properties     to apply to all devices in the scene, overriding those configured in the scene.</p></li>
+<li><p><strong>fast</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]) – Execute the query fast, without initial state checks and wait     for no results.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -395,9 +407,13 @@
 <dl class="py function">
 <dt id="lifx.scenes.list_scenes">
 <code class="sig-prename descclassname">lifx.scenes.</code><code class="sig-name descname">list_scenes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">session</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lifx/scenes.html#list_scenes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lifx.scenes.list_scenes" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#lifx.model.Scene" title="lifx.model.Scene"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scene</span></code></a>]</p>
+<dd><p>List all the configured scenes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>session</strong> (<a class="reference internal" href="#lifx.session.Session" title="lifx.session.Session"><code class="xref py py-class docutils literal notranslate"><span class="pre">Session</span></code></a>) – session object used to perform API calls</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#lifx.model.Scene" title="lifx.model.Scene"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scene</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>

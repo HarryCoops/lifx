@@ -6,6 +6,10 @@ from lifx.session import Session
 
 
 def get_selectors(session: Session) -> List[str]:
+    """
+    List all the available selectors for a given session. See \
+    https://api.developer.lifx.com/v1/docs/selectors
+    """
     selector = Selector("all", session)
     selectors = set()
     for light in selector.get_lights():

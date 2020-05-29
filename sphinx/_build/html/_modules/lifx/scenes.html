@@ -40,6 +40,11 @@
 
 
 <div class="viewcode-block" id="list_scenes"><a class="viewcode-back" href="../../lifx.html#lifx.scenes.list_scenes">[docs]</a><span class="k">def</span> <span class="nf">list_scenes</span><span class="p">(</span><span class="n">session</span><span class="p">:</span> <span class="n">Session</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Scene</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    List all the configured scenes</span>
+<span class="sd">    </span>
+<span class="sd">    :param session: session object used to perform API calls</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">scene_jsons</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;scenes&quot;</span><span class="p">)</span>
     <span class="n">scenes</span> <span class="o">=</span> <span class="p">[</span><span class="n">Scene</span><span class="p">(</span><span class="o">**</span><span class="n">scene_json</span><span class="p">)</span> <span class="k">for</span> <span class="n">scene_json</span> <span class="ow">in</span> <span class="n">scene_jsons</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">scenes</span></div>
@@ -53,7 +58,20 @@
     <span class="n">overrides</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">State</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">fast</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Activate a scene by its id.</span>
 
+<span class="sd">    :param session: session object used to perform API calls</span>
+<span class="sd">    :param scene_id: UUID of a scene, can be accessed from a scene object \</span>
+<span class="sd">    by scene.uuid</span>
+<span class="sd">    :param ignore: Any of &quot;power&quot;, &quot;infrared&quot;, &quot;duration&quot;, &quot;intensity&quot;, \</span>
+<span class="sd">    &quot;hue&quot;, &quot;saturation&quot;, &quot;brightness&quot; or &quot;kelvin&quot;, specifying that these \</span>
+<span class="sd">    properties should not be changed on devices when applying the scene.</span>
+<span class="sd">    :param overrides: A state object as per Set State specifying properties \</span>
+<span class="sd">    to apply to all devices in the scene, overriding those configured in the scene.</span>
+<span class="sd">    :param fast: Execute the query fast, without initial state checks and wait \</span>
+<span class="sd">    for no results.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">body</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s2">&quot;ignore&quot;</span><span class="p">:</span> <span class="n">ignore</span><span class="p">,</span>
         <span class="s2">&quot;duration&quot;</span><span class="p">:</span> <span class="n">duration</span><span class="p">,</span>
