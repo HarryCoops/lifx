@@ -10,3 +10,4 @@ To run tests using Docker `./scripts/run-test.sh`
  - [ ] Add tests for state modification
  - [ ] Write documentation
  - [ ] Clean up class diagram
+ - [ ] Generate docs using docker
