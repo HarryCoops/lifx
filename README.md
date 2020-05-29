@@ -5,7 +5,7 @@ Docs: https://harrycoops.github.io/lifx/lifx.html
 
 To run tests using Docker `./scripts/run-test.sh`
 
-## TODO:
+## TODO:
 
  - [ ] Add tests for state modification
  - [ ] Write documentation
