@@ -4,14 +4,12 @@ from lifx.exception import AuthorizationException
 
 
 class Session:
-
     """
     Layer of abstraction between API Classes and the requests library.
     Handles the actual API calls and authentication.
 
     :param token: Lifx api authorization token 
     """
-
     def __init__(self, token: str) -> int:
         self.token = token
         self.headers = {"Authorization": f"Bearer {token}"}

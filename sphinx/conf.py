@@ -15,12 +15,10 @@ import sys
 sys.path.insert(0,
                 os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-
 # -- Project information -----------------------------------------------------
 
 project = 'lifx'
 author = 'Harry Cooper'
-
 
 # -- General configuration ---------------------------------------------------
 
@@ -28,9 +26,7 @@ author = 'Harry Cooper'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.autodoc',
-    'sphinx.ext.viewcode',
-    'sphinx.ext.todo',
+    'sphinx.ext.autodoc', 'sphinx.ext.viewcode', 'sphinx.ext.todo',
     'sphinx_autodoc_typehints'
 ]
 
@@ -49,7 +45,6 @@ language = 'en'
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
-
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
@@ -61,7 +56,6 @@ html_theme = 'alabaster'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
-
 
 # -- Extension configuration -------------------------------------------------
 

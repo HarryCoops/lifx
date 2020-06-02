@@ -6,7 +6,6 @@ from lifx.session import Session
 
 
 class Selector:
-
     """
     Class representing a single light or a group of lights that 
     share a selector e.g. group, location etc. This class provides
@@ -17,7 +16,6 @@ class Selector:
     :param session: session object used to perform API calls
 
     """
-
     def __init__(self, selector: str, session: Session) -> None:
         self.session = session
         self.selector = selector
@@ -87,7 +85,7 @@ class Selector:
             "power_on": power_on,
             "peak": peak
         }
-        
+
         body = {k: v for k, v in body.items() if v is not None}
         self.session.post(f"lights/{self.selector}/effects/breathe", body)
         self._update_lights()
