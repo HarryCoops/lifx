@@ -1,4 +1,4 @@
-from lifx import model, session, selector
+from lifx import model, session, selector, state
 import responses
 import pytest
 import pathlib
@@ -27,9 +27,7 @@ def test_get_all__length_one(fx_test_session: session.Session):
     req_json = {}
     with open(test_data_path / "list_all_1.json") as f:
         req_json = json.loads(f.read())
-    responses.add(responses.GET,
-                  "https://api.lifx.com/v1/lights/all",
-                  json=req_json)
+    responses.add(responses.GET, "https://api.lifx.com/v1/lights/all", json=req_json)
     lights = selector.Selector("all", fx_test_session).get_lights()
     assert len(lights) == 1
     assert isinstance(lights[0], model.Light)
@@ -41,9 +39,7 @@ def test_get_all__length_two(fx_test_session: session.Session):
     req_json = {}
     with open(test_data_path / "list_all_2.json") as f:
         req_json = json.loads(f.read())
-    responses.add(responses.GET,
-                  "https://api.lifx.com/v1/lights/all",
-                  json=req_json)
+    responses.add(responses.GET, "https://api.lifx.com/v1/lights/all", json=req_json)
     lights = selector.Selector("all", fx_test_session).get_lights()
     assert len(lights) == 2
     assert isinstance(lights[0], model.Light)
@@ -57,11 +53,10 @@ def test_get_group(fx_test_session: session.Session):
     req_json = {}
     with open(test_data_path / "list_all_1.json") as f:
         req_json = json.loads(f.read())
-    responses.add(responses.GET,
-                  "https://api.lifx.com/v1/lights/group:test_label",
-                  json=req_json)
-    lights = selector.Selector("group:test_label",
-                               fx_test_session).get_lights()
+    responses.add(
+        responses.GET, "https://api.lifx.com/v1/lights/group:test_label", json=req_json
+    )
+    lights = selector.Selector("group:test_label", fx_test_session).get_lights()
     assert len(lights) == 1
     assert isinstance(lights[0], model.Light)
     assert lights[0].id == "test_id"
@@ -72,11 +67,12 @@ def test_get_location(fx_test_session: session.Session):
     req_json = {}
     with open(test_data_path / "list_all_1.json") as f:
         req_json = json.loads(f.read())
-    responses.add(responses.GET,
-                  "https://api.lifx.com/v1/lights/location:test_label",
-                  json=req_json)
-    lights = selector.Selector("location:test_label",
-                               fx_test_session).get_lights()
+    responses.add(
+        responses.GET,
+        "https://api.lifx.com/v1/lights/location:test_label",
+        json=req_json,
+    )
+    lights = selector.Selector("location:test_label", fx_test_session).get_lights()
     assert len(lights) == 1
     assert isinstance(lights[0], model.Light)
     assert lights[0].id == "test_id"
@@ -87,10 +83,33 @@ def test_get_by_label(fx_test_session: session.Session):
     req_json = {}
     with open(test_data_path / "list_all_1.json") as f:
         req_json = json.loads(f.read())
-    responses.add(responses.GET,
-                  "https://api.lifx.com/v1/lights/label:test_label",
-                  json=req_json)
-    _light = selector.Selector("label:test_label",
-                               fx_test_session).get_lights()[0]
+    responses.add(
+        responses.GET, "https://api.lifx.com/v1/lights/label:test_label", json=req_json
+    )
+    _light = selector.Selector("label:test_label", fx_test_session).get_lights()[0]
     assert isinstance(_light, model.Light)
     assert _light.id == "test_id"
+
+
+# What more tests do I need?
+"""
+    Testing state changes, check that the selector methods call the
+    right endpoints. Probably need a new fixture for the selector
+
+"""
+
+
+@responses.activate
+def fx_test_selector(fx_test_session: session.Session) -> selector.Selector:
+    req_json = {}
+    with open(test_data_path / "list_all_1.json") as f:
+        req_json = json.loads(f.read())
+    responses.add(responses.GET, "https://api.lifx.com/v1/lights/all", json=req_json)
+    return selector.Selector("all", fx_test_session).get_lights()
+
+
+@responses.activate
+def test_set_state(fx_test_selector: selector.Selector):
+    responses.add(responses.PUT, "https://api.lifx.com/v1/lights/all/state")
+    test_state = state.State(brightness=0.1)
+    fx_test_selector.set_state(test_state)

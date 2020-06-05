@@ -16,6 +16,7 @@ class Selector:
     :param session: session object used to perform API calls
 
     """
+
     def __init__(self, selector: str, session: Session) -> None:
         self.session = session
         self.selector = selector
@@ -27,8 +28,9 @@ class Selector:
 
         :param state: state to be applied to the selected lights
         """
-        self.session.put(f"lights/{self.selector}/state",
-                         state.dict(exclude_unset=True))
+        self.session.put(
+            f"lights/{self.selector}/state", state.dict(exclude_unset=True)
+        )
         self._update_lights()
 
     def state_delta(self, state_delta: model.StateDelta) -> None:
@@ -39,8 +41,9 @@ class Selector:
 
         :param state_delta: Change in state to be applied to selected lights
         """
-        self.session.post(f"lights/{self.selector}/state/delta",
-                          state_delta.dict(exclude_unset=True))
+        self.session.post(
+            f"lights/{self.selector}/state/delta", state_delta.dict(exclude_unset=True)
+        )
         self._update_lights()
 
     def toggle_power(self) -> None:
@@ -83,7 +86,7 @@ class Selector:
             "cycles": cycles,
             "persist": persist,
             "power_on": power_on,
-            "peak": peak
+            "peak": peak,
         }
 
         body = {k: v for k, v in body.items() if v is not None}
@@ -135,11 +138,7 @@ class Selector:
         in seconds. A lower number means the animation is faster
         :param power_off: If true, turn the bulb on if it is not already on.
         """
-        body = {
-            "duration": duration,
-            "period": period,
-            "power_on": power_on,
-        }
+        body = {"duration": duration, "period": period, "power_on": power_on}
         body = {k: v for k, v in body.items() if v is not None}
         self.session.post(f"lights/{self.selector}/effects/flame", body)
         self._update_lights()
@@ -185,8 +184,9 @@ class Selector:
 
         Also, if you specify power_off as true then the lights will also be powered off.
         """
-        self.session.post(f"lights'/{self.selector}/effects/off",
-                          {power_off: power_off})
+        self.session.post(
+            f"lights'/{self.selector}/effects/off", {power_off: power_off}
+        )
         self._update_lights()
 
     def cycle(
@@ -209,11 +209,7 @@ class Selector:
             states_dicts = [state.dict(exclude_unset=True) for state in states]
         if default is not None:
             default_dict = default.dict(exclude_unset=True)
-        body = {
-            "states": states_dicts,
-            "default": default_dict,
-            "direction": direction
-        }
+        body = {"states": states_dicts, "default": default_dict, "direction": direction}
         body = {k: v for k, v in body.items() if v is not None}
         self.session.post(f"lights/{self.selector}/effects/cycle", body)
         self._update_lights()

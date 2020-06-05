@@ -11,3 +11,4 @@ To run tests using Docker `./scripts/run-test.sh`
  - [ ] Write documentation
  - [ ] Clean up class diagram
  - [ ] Generate docs using docker
+https://github.com/psf/black ?

@@ -10,6 +10,7 @@ class Session:
 
     :param token: Lifx api authorization token 
     """
+
     def __init__(self, token: str) -> int:
         self.token = token
         self.headers = {"Authorization": f"Bearer {token}"}
@@ -26,10 +27,7 @@ class Session:
 
         :return: serialized JSON dictionary of reponse from API
         """
-        response = requests.get(
-            self.base + path,
-            headers=self.headers,
-        )
+        response = requests.get(self.base + path, headers=self.headers)
         response.raise_for_status()
         return response.json()
 
@@ -43,11 +41,7 @@ class Session:
 
         :return: serialized JSON dictionary of reponse from API 
         """
-        response = requests.post(
-            self.base + path,
-            json=body,
-            headers=self.headers,
-        )
+        response = requests.post(self.base + path, json=body, headers=self.headers)
         response.raise_for_status()
         return response.json()
 
@@ -61,10 +55,6 @@ class Session:
 
         :return: serialized JSON dictionary of reponse from API
         """
-        response = requests.put(
-            self.base + path,
-            json=body,
-            headers=self.headers,
-        )
+        response = requests.put(self.base + path, json=body, headers=self.headers)
         response.raise_for_status()
         return response.json()
