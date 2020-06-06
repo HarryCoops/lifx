@@ -1,0 +1,1 @@
+[{"uuid": "7ff6a2a8-84ff-4897-964a-6c1c941a1063", "name": "Test", "account": {"uuid": "7ff6a2a8-84ff-4897-964a-6c1c941a1063"}, "states": [{"selector": "id:d073d52bce33", "power": "on", "brightness": 0.6999923586845398, "color": {"hue": 0, "saturation": 1, "kelvin": 3500}}], "created_at": 1590407808, "updated_at": 1590407808}]

@@ -95,10 +95,10 @@ class Selector:
 
     def move(
         self,
-        direction: Optional[str],
-        period: Optional[float],
-        cycles: Optional[float],
-        power_on: Optional[bool],
+        direction: Optional[str] = None,
+        period: Optional[float] = None,
+        cycles: Optional[float] = None,
+        power_on: Optional[bool] = None,
     ) -> None:
         """
         Apply the move effect to the selected lights
@@ -184,9 +184,7 @@ class Selector:
 
         Also, if you specify power_off as true then the lights will also be powered off.
         """
-        self.session.post(
-            f"lights'/{self.selector}/effects/off", {power_off: power_off}
-        )
+        self.session.post(f"lights/{self.selector}/effects/off", {power_off: power_off})
         self._update_lights()
 
     def cycle(

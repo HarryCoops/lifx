@@ -11,7 +11,7 @@ class Session:
     :param token: Lifx api authorization token 
     """
 
-    def __init__(self, token: str) -> int:
+    def __init__(self, token: str) -> None:
         self.token = token
         self.headers = {"Authorization": f"Bearer {token}"}
         self.base = "https://api.lifx.com/v1/"

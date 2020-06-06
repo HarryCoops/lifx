@@ -39,7 +39,7 @@ class Location(BaseModel):
 
 class State(BaseModel):
     """
-    Model representing the State of a light or many lights, depending on the selector \ 
+    Model representing the State of a light or many lights, depending on the selector \
     The selector attribute is there for compatibility with the return of list_scenes endpoint. \
     It does not need to be provided when changing states using the Selector class.
     """
