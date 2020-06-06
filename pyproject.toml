@@ -1,9 +1,12 @@
 [tool.poetry]
-name = "lifx"
+name = "lifx-wrapper"
 version = "0.1.0"
-description = "API For Controlling Lifx Lights"
+description = "A python wrapper for the Lifx REST API"
 authors = ["Harry Cooper <harry.coop99@gmail.com>"]
 license = "MIT"
+packages = [
+    {include = "lifx"}
+]
 
 [tool.poetry.dependencies]
 python = "^3.7"
