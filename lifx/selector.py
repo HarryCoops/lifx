@@ -22,14 +22,16 @@ class Selector:
         self.selector = selector
         self._update_lights()
 
-    def set_state(self, state: model.State) -> None:
+    def set_state(self, state: model.State, fast: bool = False) -> None:
         """
         Set the state of the selected lights 
 
         :param state: state to be applied to the selected lights
         """
+        put_dict = state.dict(exclude_unset=True)
+        put_dict["fast"] = fast
         self.session.put(
-            f"lights/{self.selector}/state", state.dict(exclude_unset=True)
+            f"lights/{self.selector}/state", put_dict
         )
         self._update_lights()
 
