@@ -119,7 +119,7 @@ class Light(BaseModel):
     power: str
     color: Color
     brightness: float
-    effect: str
+    effect: Optional[str]
     group: Group
     location: Location
     product: Product
