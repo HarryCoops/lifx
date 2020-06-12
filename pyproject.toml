@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "lifx-wrapper"
-version = "0.1.0"
+version = "0.1.1"
 description = "A python wrapper for the Lifx REST API"
 authors = ["Harry Cooper <harry.coop99@gmail.com>"]
 license = "MIT"
